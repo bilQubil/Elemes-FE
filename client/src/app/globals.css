@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+.bg-with-opacity::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: url("/bg.svg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.02;
+    z-index: -1;
+}
