@@ -46,6 +46,55 @@ export default function Home({ fontRubik }: { fontRubik: string }) {
                     </button>
                 </div>
             </div>
+            {/* Hero */}
+            <div className="flex flex-row items-center h-[650px] w-full relative overflow-hidden">
+                {/* Left */}
+                <div className="flex flex-col basis-1/2 ml-[120px] justify-center space-y-6 ">
+                    <h1 className="text-[#8BAC3E] text-[64px] font-medium leading-[60px]">
+                        Good Food Us <br />
+                        Good Mood
+                    </h1>
+                    <p className="p-2 max-w-md leading-relaxed text-[#757575]">
+                        I would think that conserving our natural resources
+                        should be a conservative position: Not to waste food,
+                        and not to throw away a lot of the food that we buy.
+                    </p>
+                    <div className="flex flex-row py-4">
+                        <button className="bg-[#8BAC3E] hover:bg-[#7aaa5f] rounded-4xl py-[10px] px-[18px] shadow-[0_4px_20px_#666BE259]">
+                            <p className="text-white text-[14px] font-medium">
+                                Daftar Sekarang
+                            </p>
+                        </button>
+                        <button className="bg-[#F2F2F2] hover:bg-[#e6e6e6] rounded-4xl py-[10px] px-[18px] ml-2">
+                            <p className="text-black text-[14px] font-medium">
+                                About us
+                            </p>
+                        </button>
+                    </div>
+                </div>
+                {/* Right */}
+                <div className="basis-1/2 flex justify-center mr-25">
+                    <div className="relative w-[412px] h-[414px]">
+                        <div className="absolute -bottom-11 -right-12 w-[510px] h-[510px] bg-[#C4C4C4] opacity-15 rounded-full z-0"></div>
+                        <Image
+                            src="/mangkok.png"
+                            width={412}
+                            height={414}
+                            alt="logo"
+                            className="object-contain relative z-10"
+                        />
+                    </div>
+                    <div className="absolute right-122 top-115">
+                        <Image
+                            src="/cardProfile.png"
+                            width={207}
+                            height={50}
+                            alt="logo"
+                            className="z-15 object-contain relative"
+                        />
+                    </div>
+                </div>
+            </div>
         </div>
     );
 }
