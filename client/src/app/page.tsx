@@ -15,16 +15,33 @@ export default function Home({ fontRubik }: { fontRubik: string }) {
                         alt="logo"
                     />
                 </div>
-                <div className="flex flex-row items-center gap-[32px] text-[14px] text-[#757575]">
-                    <p className="">Home</p>
-                    <p className="">About</p>
-                    <p className="">Promotion</p>
-                    <p className="">Blog</p>
-                    <p className="">Contact Us</p>
+                <div className="flex flex-row items-center gap-[16px] text-[14px] text-[#757575]">
+                    <button className="hover:bg-gray-100 py-2 px-4 rounded-4xl">
+                        <p className="">Home</p>
+                    </button>
+                    <button className="hover:bg-gray-100 py-2 px-4 rounded-4xl">
+                        <p className="">About</p>
+                    </button>
+                    <div className="relative flex items-center">
+                        <button className="hover:bg-gray-100 py-2 px-4 rounded-4xl">
+                            <p className="">Promotions</p>
+                        </button>
+                        <span className="absolute -top-0.5 right-0 bg-[#E7462D] text-white text-[8px] font-semibold px-2 py-[2px] rounded-full">
+                            HOT
+                        </span>
+                    </div>
+                    <button className="hover:bg-gray-100 py-2 px-4 rounded-4xl">
+                        <p className="">Blog</p>
+                    </button>
+                    <button className="hover:bg-gray-100 py-2 px-4 rounded-4xl">
+                        <p className="">Contact Us</p>
+                    </button>
                 </div>
                 <div className="flex flex-row items-center">
-                    <p className="pr-5">Masuk</p>
-                    <button className="bg-[#8BAC3E] rounded-4xl py-[10px] px-[18px]">
+                    <button className="flex justify-center hover:bg-gray-100 py-2 px-4 rounded-4xl mr-5">
+                        <p className="">Masuk</p>
+                    </button>
+                    <button className="bg-[#8BAC3E] hover:bg-[#435c34] rounded-4xl py-[10px] px-[18px]">
                         <p className="text-white font">Daftar Sekarang</p>
                     </button>
                 </div>
