@@ -2,6 +2,16 @@ import Carousel from "@/components/carousel";
 import Image from "next/image";
 import { IoMailOutline, IoCallOutline, IoLogoInstagram } from "react-icons/io5";
 
+type CategoryName = "Cupcake" | "Pizza" | "Kebab" | "Salmon" | "Doughnut";
+
+const categoryColor: Record<CategoryName, string> = {
+    Cupcake: "#F0FEEB",
+    Pizza: "#E4F2F4",
+    Kebab: "#EAEEFA",
+    Salmon: "#F9EEF3",
+    Doughnut: "#F3F7D9",
+};
+
 const slides = [
     {
         id: 1,
@@ -9,11 +19,100 @@ const slides = [
         imageUrl: "/kue.png",
         items: 10,
     },
+    {
+        id: 2,
+        name: "Pizza",
+        imageUrl: "/pizza.png",
+        items: 25,
+    },
+    {
+        id: 3,
+        name: "Kebab",
+        imageUrl: "/kebab.png",
+        items: 12,
+    },
+    {
+        id: 4,
+        name: "Salmon",
+        imageUrl: "/salmon.png",
+        items: 12,
+    },
+    {
+        id: 5,
+        name: "Doughnut",
+        imageUrl: "/donat.png",
+        items: 11,
+    },
+    {
+        id: 6,
+        name: "Cupcake",
+        imageUrl: "/kue.png",
+        items: 12,
+    },
+];
+
+const trending = [
+    {
+        id: 1,
+        name: "Pizza Paperoni",
+        category: "Pizza",
+        imageUrl: "/pizzaPhoto.png",
+        rating: 4,
+    },
+    {
+        id: 2,
+        name: "Pizza Meat",
+        category: "Pizza",
+        imageUrl: "/pizzaMeatPhoto.png",
+        rating: 3,
+    },
+    {
+        id: 3,
+        name: "Doner Kebab",
+        category: "Kebab",
+        imageUrl: "/kebabPhoto.png",
+        rating: 5,
+    },
+    {
+        id: 4,
+        name: "Salmon Roll",
+        category: "Salmon",
+        imageUrl: "/sushiPhoto.png",
+        rating: 4,
+    },
+    {
+        id: 5,
+        name: "Cupcake Choco",
+        category: "Cupcake",
+        imageUrl: "/cookiePhoto.png",
+        rating: 4,
+    },
+    {
+        id: 6,
+        name: "Doughnut Milk",
+        category: "Doughnut",
+        imageUrl: "/donatPhoto.png",
+        rating: 5,
+    },
+    {
+        id: 7,
+        name: "Doughnut Unicorn",
+        category: "Doughnut",
+        imageUrl: "/donatPinkPhoto.png",
+        rating: 4,
+    },
+    {
+        id: 8,
+        name: "Kathi Kebab",
+        category: "Kebab",
+        imageUrl: "/kathiKebabPhoto.png",
+        rating: 4,
+    },
 ];
 
 export default function Home({ fontRubik }: { fontRubik: string }) {
     return (
-        <div className=" h-screen w-screen relative">
+        <div className=" h-screen w-screen relative max-w-8xl mx-auto">
             {/* Navbar */}
             <div
                 className={`${fontRubik} flex flex-row justify-around align-middle h-24 font-medium`}
@@ -52,7 +151,7 @@ export default function Home({ fontRubik }: { fontRubik: string }) {
                     <button className="flex justify-center hover:bg-gray-100 py-2 px-4 rounded-4xl mr-5">
                         <p className="">Masuk</p>
                     </button>
-                    <button className="bg-[#8BAC3E] hover:bg-[#435c34] rounded-4xl py-[10px] px-[18px]">
+                    <button className="bg-[#8BAC3E] hover:opacity-90 rounded-4xl py-[10px] px-[18px]">
                         <p className="text-white font">Daftar Sekarang</p>
                     </button>
                 </div>
@@ -71,7 +170,7 @@ export default function Home({ fontRubik }: { fontRubik: string }) {
                         and not to throw away a lot of the food that we buy.
                     </p>
                     <div className="flex flex-row py-4">
-                        <button className="bg-[#8BAC3E] hover:bg-[#7aaa5f] rounded-4xl py-[10px] px-[18px] shadow-[0_4px_20px_#666BE259]">
+                        <button className="bg-[#8BAC3E] hover:opacity-90 rounded-4xl py-[10px] px-[18px] shadow-[0_4px_20px_#666BE259]">
                             <p className="text-white text-[14px] font-medium">
                                 Daftar Sekarang
                             </p>
@@ -107,24 +206,79 @@ export default function Home({ fontRubik }: { fontRubik: string }) {
                 </div>
             </div>
             {/* Sliding card */}
-            {/* <div>
-                <div>
-                    <h1>Browser Our Category</h1>
-                    <h1>Receipt</h1>
+            <div className="flex flex-col max-w-7xl mx-auto">
+                <div className="pl-5 ml-7">
+                    <h1 className="text-[38px] text-black font-medium">
+                        Browser Our Category
+                    </h1>
+                    <h1 className="text-[38px] text-[#8BAC3E] font-medium">
+                        Receipt
+                    </h1>
                 </div>
-                <div className="flex flex-row">Card slide</div>
-            </div> */}
-            <Carousel slides={slides} />
+                <Carousel slides={slides} categoryColors={categoryColor} />
+            </div>
             {/* Grid card */}
-            <div>
-                <div>
-                    <h1>Browse Our Trending</h1>
-                    <h1>Receipt</h1>
+            <div className="flex flex-col max-w-7xl mx-auto">
+                <div className="p-5 ml-7">
+                    <h1 className="text-[38px] text-black font-medium">
+                        Browse Our Trending
+                    </h1>
+                    <h1 className="text-[38px] text-[#8BAC3E] font-medium">
+                        Receipt
+                    </h1>
                 </div>
-                <div>gird</div>
-                <button>
-                    <p>All Receipt</p>
-                </button>
+                <div className="py-4 px-10 flex flex-col ">
+                    <ul className="grid grid-cols-4 gap-6">
+                        {trending.map((item) => (
+                            <li
+                                key={item.id}
+                                className="bg-white rounded-2xl p-4 shadow-md hover:shadow-lg transition-all duration-200 hover:scale-105"
+                                style={{
+                                    backgroundColor:
+                                        categoryColor[
+                                            item.category as CategoryName
+                                        ] || "#FFFFFF",
+                                }}
+                            >
+                                <div className="relative h-48 w-full mb-4">
+                                    <Image
+                                        src={item.imageUrl}
+                                        alt={item.name}
+                                        fill
+                                        className="object-cover rounded-xl"
+                                    />
+                                </div>
+                                <h3 className="text-lg font-medium mb-1">
+                                    {item.name}
+                                </h3>
+                                <p className="text-[#8BAC3E] text-sm mb-2">
+                                    {item.category}
+                                </p>
+                                <div className="flex items-center">
+                                    {[...Array(5)].map((_, index) => (
+                                        <svg
+                                            key={index}
+                                            className={`w-4 h-4 ${
+                                                index < item.rating
+                                                    ? "text-yellow-400"
+                                                    : "text-gray-300"
+                                            }`}
+                                            fill="currentColor"
+                                            viewBox="0 0 20 20"
+                                        >
+                                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                        </svg>
+                                    ))}
+                                </div>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+                <div className="flex justify-center mt-8">
+                    <button className="bg-[#8BAC3E] hover:opacity-90 rounded-4xl py-[10px] px-[18px] text-white text-[14px] font-medium inline-block">
+                        All Receipt
+                    </button>
+                </div>
             </div>
             {/* Footer */}
             <div className={`${fontRubik} bg-white py-20`}>
@@ -215,7 +369,7 @@ export default function Home({ fontRubik }: { fontRubik: string }) {
                                         placeholder="Your email address"
                                         className="flex-1 p-3 border border-gray-200 rounded-l-md focus:outline-none focus:border-[#8BAC3E] text-sm"
                                     />
-                                    <button className="bg-[#8BAC3E] text-white px-6 py-3 rounded-r-md hover:bg-[#7a9935] transition-colors text-sm font-medium">
+                                    <button className="bg-[#8BAC3E] text-white px-6 py-3 rounded-r-md hover:opacity-90 transition-colors text-sm font-medium">
                                         SEND
                                     </button>
                                 </div>
