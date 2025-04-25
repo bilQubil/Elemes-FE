@@ -1,4 +1,15 @@
+import Carousel from "@/components/carousel";
 import Image from "next/image";
+import { IoMailOutline, IoCallOutline, IoLogoInstagram } from "react-icons/io5";
+
+const slides = [
+    {
+        id: 1,
+        name: "Cupcake",
+        imageUrl: "/kue.png",
+        items: 10,
+    },
+];
 
 export default function Home({ fontRubik }: { fontRubik: string }) {
     return (
@@ -84,14 +95,151 @@ export default function Home({ fontRubik }: { fontRubik: string }) {
                             className="object-contain relative z-10"
                         />
                     </div>
-                    <div className="absolute right-122 top-115">
+                    <div className="absolute right-110 top-114">
                         <Image
                             src="/cardProfile.png"
-                            width={207}
-                            height={50}
+                            width={297}
+                            height={75}
                             alt="logo"
                             className="z-15 object-contain relative"
                         />
+                    </div>
+                </div>
+            </div>
+            {/* Sliding card */}
+            {/* <div>
+                <div>
+                    <h1>Browser Our Category</h1>
+                    <h1>Receipt</h1>
+                </div>
+                <div className="flex flex-row">Card slide</div>
+            </div> */}
+            <Carousel slides={slides} />
+            {/* Grid card */}
+            <div>
+                <div>
+                    <h1>Browse Our Trending</h1>
+                    <h1>Receipt</h1>
+                </div>
+                <div>gird</div>
+                <button>
+                    <p>All Receipt</p>
+                </button>
+            </div>
+            {/* Footer */}
+            <div className={`${fontRubik} bg-white py-20`}>
+                <div className="max-w-7xl mx-auto px-4">
+                    <div className="grid grid-cols-12 gap-20">
+                        {/* Company Info */}
+                        <div className="col-span-4 space-y-6">
+                            <Image
+                                src="/logoElemes.svg"
+                                width={207}
+                                height={50}
+                                alt="Elemes.id logo"
+                                className="mb-2"
+                            />
+                            <p className="text-sm leading-relaxed text-gray-600">
+                                Jl. Prof. DR. Satrio No.7, RT.3/RW.3, Karet
+                                Kuningan, Kecamatan Setiabudi, Kota Jakarta
+                                Selatan, Daerah Khusus Ibukota Jakarta 12950
+                            </p>
+                            <div className="flex space-x-3">
+                                <button className="group w-10 h-10 bg-white hover:bg-[#8BAC3E] rounded-full flex items-center justify-center transition-all duration-200 border border-gray-100 shadow-sm">
+                                    <IoMailOutline className="w-5 h-5 text-black group-hover:text-white transition-all duration-200" />
+                                </button>
+                                <button className="group w-10 h-10 bg-white hover:bg-[#8BAC3E] rounded-full flex items-center justify-center transition-all duration-200 border border-gray-100 shadow-sm">
+                                    <IoCallOutline className="w-5 h-5 text-black group-hover:text-white transition-all duration-200" />
+                                </button>
+                                <button className="group w-10 h-10 bg-white hover:bg-[#8BAC3E] rounded-full flex items-center justify-center transition-all duration-200 border border-gray-100 shadow-sm">
+                                    <IoLogoInstagram className="w-5 h-5 text-black group-hover:text-white transition-all duration-200" />
+                                </button>
+                            </div>
+                        </div>
+
+                        {/* Categories */}
+                        <div className="col-span-2 gap-12">
+                            <h3 className="text-lg font-medium mb-6">
+                                Categories
+                            </h3>
+                            <ul className="space-y-4 text-gray-600">
+                                <li className="hover:text-[#8BAC3E] cursor-pointer transition-colors">
+                                    Cupcake
+                                </li>
+                                <li className="hover:text-[#8BAC3E] cursor-pointer transition-colors">
+                                    Pizza
+                                </li>
+                                <li className="hover:text-[#8BAC3E] cursor-pointer transition-colors">
+                                    Kebab
+                                </li>
+                                <li className="hover:text-[#8BAC3E] cursor-pointer transition-colors">
+                                    Salmon
+                                </li>
+                                <li className="hover:text-[#8BAC3E] cursor-pointer transition-colors">
+                                    Dougnut
+                                </li>
+                            </ul>
+                        </div>
+
+                        {/* About Us */}
+                        <div className="col-span-2">
+                            <h3 className="text-lg font-medium mb-6">
+                                About Us
+                            </h3>
+                            <ul className="space-y-4 text-gray-600">
+                                <li className="hover:text-[#8BAC3E] cursor-pointer transition-colors">
+                                    About Us
+                                </li>
+                                <li className="hover:text-[#8BAC3E] cursor-pointer transition-colors">
+                                    FAQ
+                                </li>
+                                <li className="hover:text-[#8BAC3E] cursor-pointer transition-colors">
+                                    Report Problem
+                                </li>
+                            </ul>
+                        </div>
+
+                        {/* Newsletter */}
+                        <div className="col-span-4">
+                            <h3 className="text-lg font-medium mb-6">
+                                Newsletter
+                            </h3>
+                            <p className="text-sm text-gray-600 mb-6 leading-relaxed">
+                                Get now free 50% discount for all products on
+                                your first order
+                            </p>
+                            <div className="mb-6">
+                                <div className="flex">
+                                    <input
+                                        type="email"
+                                        placeholder="Your email address"
+                                        className="flex-1 p-3 border border-gray-200 rounded-l-md focus:outline-none focus:border-[#8BAC3E] text-sm"
+                                    />
+                                    <button className="bg-[#8BAC3E] text-white px-6 py-3 rounded-r-md hover:bg-[#7a9935] transition-colors text-sm font-medium">
+                                        SEND
+                                    </button>
+                                </div>
+                            </div>
+                            <div className="space-y-3">
+                                <div className="flex items-center space-x-3">
+                                    <IoMailOutline className="w-5 h-5 text-[#8BAC3E]" />
+                                    <span className="text-gray-600 text-sm">
+                                        elemesid@gmail.com
+                                    </span>
+                                </div>
+                                <div className="flex items-center space-x-3">
+                                    <IoCallOutline className="w-5 h-5 text-[#8BAC3E]" />
+                                    <span className="text-gray-600 text-sm">
+                                        0888 1111 2222
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="pt-8 border-t border-gray-100">
+                        <p className="text-center text-gray-600 text-sm">
+                            © 2021 Elemes id. All rights reserved
+                        </p>
                     </div>
                 </div>
             </div>
