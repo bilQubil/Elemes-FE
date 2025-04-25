@@ -19,7 +19,7 @@ const Carousel: React.FC<CarouselProps> = ({ slides, categoryColors }) => {
     return (
         <div className="relative w-full max-w-[1200px] mx-auto py-8">
             {/* Carousel Container */}
-            <div className="overflow-x-auto snap-x snap-mandatory flex space-x-5 py-4">
+            <div className="overflow-x-auto snap-x snap-mandatory flex space-x-5 py-4 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none']">
                 {slides.map((slide) => (
                     <div
                         key={slide.id}
