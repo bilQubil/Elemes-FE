@@ -17,13 +17,13 @@ interface CarouselProps {
 
 const Carousel: React.FC<CarouselProps> = ({ slides, categoryColors }) => {
     return (
-        <div className="relative w-full max-w-7xl mx-auto py-8">
+        <div className="relative w-full max-w-[1200px] mx-auto py-8">
             {/* Carousel Container */}
-            <div className="overflow-x-auto snap-x snap-mandatory flex space-x-6">
+            <div className="overflow-x-auto snap-x snap-mandatory flex space-x-5 py-4">
                 {slides.map((slide) => (
                     <div
                         key={slide.id}
-                        className="snap-start flex-shrink-0 w-56 h-48 flex flex-col items-center justify-center rounded-lg shadow-md transition-transform hover:scale-105"
+                        className="snap-start flex-shrink-0 w-52 h-40 flex flex-col items-center justify-center rounded-lg shadow-md transition-transform hover:scale-110"
                         style={{
                             backgroundColor:
                                 categoryColors[slide.name] || "#FFFFFF",
@@ -49,7 +49,7 @@ const Carousel: React.FC<CarouselProps> = ({ slides, categoryColors }) => {
             {/* Navigation Buttons */}
             <div className="absolute -bottom-4 right-0 space-x-4 flex">
                 <button
-                    className="w-24 h-12 bg-[#8BAC3E] rounded-full flex items-center justify-center shadow-md hover:opacity-90 text-white"
+                    className="w-24 h-12 bg-[#8BAC3E] rounded-full flex items-center justify-center shadow-md hover:opacity-90 transition-all duration-200 text-white"
                     onClick={() => {
                         const container =
                             document.querySelector(".overflow-x-auto");
@@ -66,7 +66,7 @@ const Carousel: React.FC<CarouselProps> = ({ slides, categoryColors }) => {
                     <span className="font-medium">PREV</span>
                 </button>
                 <button
-                    className="w-24 h-12 bg-[#8BAC3E] rounded-full flex items-center justify-center shadow-md hover:opacity-90 text-white"
+                    className="w-24 h-12 bg-[#8BAC3E] rounded-full flex items-center justify-center shadow-md hover:opacity-90 transition-all duration-200 text-white"
                     onClick={() => {
                         const container =
                             document.querySelector(".overflow-x-auto");

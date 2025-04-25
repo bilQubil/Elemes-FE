@@ -113,9 +113,9 @@ const trending = [
 export default function Home({ fontRubik }: { fontRubik: string }) {
     return (
         <div className=" h-screen w-screen relative max-w-8xl mx-auto">
-            {/* Navbar */}
+            {/* Desktop Navbar */}
             <div
-                className={`${fontRubik} flex flex-row justify-around align-middle h-24 font-medium`}
+                className={`${fontRubik} hidden md:flex flex-row justify-around align-middle h-24 font-medium`}
             >
                 <div className="mt-[19px]">
                     <Image
@@ -126,56 +126,78 @@ export default function Home({ fontRubik }: { fontRubik: string }) {
                     />
                 </div>
                 <div className="flex flex-row items-center gap-[16px] text-[14px] text-[#757575]">
-                    <button className="hover:bg-gray-100 py-2 px-4 rounded-4xl">
+                    <button className="hover:bg-gray-100 transition-all duration-200 py-2 px-4 rounded-4xl">
                         <p className="">Home</p>
                     </button>
-                    <button className="hover:bg-gray-100 py-2 px-4 rounded-4xl">
+                    <button className="hover:bg-gray-100 transition-all duration-200 py-2 px-4 rounded-4xl">
                         <p className="">About</p>
                     </button>
                     <div className="relative flex items-center">
-                        <button className="hover:bg-gray-100 py-2 px-4 rounded-4xl">
+                        <button className="hover:bg-gray-100 transition-all duration-200 py-2 px-4 rounded-4xl">
                             <p className="">Promotions</p>
                         </button>
                         <span className="absolute -top-0.5 right-0 bg-[#E7462D] text-white text-[8px] font-semibold px-2 py-[2px] rounded-full">
                             HOT
                         </span>
                     </div>
-                    <button className="hover:bg-gray-100 py-2 px-4 rounded-4xl">
+                    <button className="hover:bg-gray-100 transition-all duration-200 py-2 px-4 rounded-4xl">
                         <p className="">Blog</p>
                     </button>
-                    <button className="hover:bg-gray-100 py-2 px-4 rounded-4xl">
+                    <button className="hover:bg-gray-100 transition-all duration-200 py-2 px-4 rounded-4xl">
                         <p className="">Contact Us</p>
                     </button>
                 </div>
                 <div className="flex flex-row items-center">
-                    <button className="flex justify-center hover:bg-gray-100 py-2 px-4 rounded-4xl mr-5">
+                    <button className="flex justify-center hover:bg-gray-100 transition-all duration-200 py-2 px-4 rounded-4xl mr-5">
                         <p className="">Masuk</p>
                     </button>
-                    <button className="bg-[#8BAC3E] hover:opacity-90 rounded-4xl py-[10px] px-[18px]">
+                    <button className="bg-[#8BAC3E] hover:opacity-90 transition-all duration-200 rounded-4xl py-[10px] px-[18px]">
                         <p className="text-white font">Daftar Sekarang</p>
                     </button>
                 </div>
             </div>
+
+            {/* Mobile Navbar */}
+            <div className="fixed bottom-0 left-0 right-0 bg-white md:hidden z-50 border-t border-gray-200">
+                <div
+                    className={`${fontRubik} flex justify-around items-center h-16`}
+                >
+                    <button className="flex flex-col items-center justify-center w-1/3 text-[#757575] hover:text-[#8BAC3E]">
+                        <p className="text-[12px]">Home</p>
+                    </button>
+                    <div className="relative flex flex-col items-center justify-center w-1/3">
+                        <button className="text-[#757575] hover:text-[#8BAC3E]">
+                            <p className="text-[12px]">Promotions</p>
+                        </button>
+                        <span className="absolute -top-1 right-8 bg-[#E7462D] text-white text-[8px] font-semibold px-2 py-[2px] rounded-full">
+                            HOT
+                        </span>
+                    </div>
+                    <button className="flex flex-col items-center justify-center w-1/3 text-[#757575] hover:text-[#8BAC3E]">
+                        <p className="text-[12px]">Others</p>
+                    </button>
+                </div>
+            </div>
             {/* Hero */}
-            <div className="flex flex-row items-center h-[650px] w-full relative overflow-hidden">
+            <div className="flex flex-col md:flex-row items-center h-auto md:h-[650px] w-full relative overflow-hidden px-4 md:px-0 py-8 md:py-0">
                 {/* Left */}
-                <div className="flex flex-col basis-1/2 ml-[120px] justify-center space-y-6 ">
-                    <h1 className="text-[#8BAC3E] text-[64px] font-medium leading-[60px]">
+                <div className="flex flex-col basis-full md:basis-1/2 md:ml-[120px] justify-center space-y-6 text-center md:text-left">
+                    <h1 className="text-[#8BAC3E] text-[40px] md:text-[64px] font-medium leading-tight md:leading-[60px]">
                         Good Food Us <br />
                         Good Mood
                     </h1>
-                    <p className="p-2 max-w-md leading-relaxed text-[#757575]">
+                    <p className="p-2 max-w-md mx-auto md:mx-0 leading-relaxed text-[#757575]">
                         I would think that conserving our natural resources
                         should be a conservative position: Not to waste food,
                         and not to throw away a lot of the food that we buy.
                     </p>
-                    <div className="flex flex-row py-4">
-                        <button className="bg-[#8BAC3E] hover:opacity-90 rounded-4xl py-[10px] px-[18px] shadow-[0_4px_20px_#666BE259]">
+                    <div className="flex flex-row py-4 justify-center md:justify-start">
+                        <button className="bg-[#8BAC3E] hover:opacity-90 transition-all duration-200 rounded-4xl py-[10px] px-[18px] shadow-[0_4px_20px_#666BE259]">
                             <p className="text-white text-[14px] font-medium">
                                 Daftar Sekarang
                             </p>
                         </button>
-                        <button className="bg-[#F2F2F2] hover:bg-[#e6e6e6] rounded-4xl py-[10px] px-[18px] ml-2">
+                        <button className="bg-[#F2F2F2] hover:bg-[#e6e6e6] transition-all duration-200 rounded-4xl py-[10px] px-[18px] ml-2">
                             <p className="text-black text-[14px] font-medium">
                                 About us
                             </p>
@@ -183,7 +205,7 @@ export default function Home({ fontRubik }: { fontRubik: string }) {
                     </div>
                 </div>
                 {/* Right */}
-                <div className="basis-1/2 flex justify-center mr-25">
+                <div className="basis-full md:basis-1/2 flex justify-center mr-0 md:mr-25 mt-8 md:mt-0">
                     <div className="relative w-[412px] h-[414px]">
                         <div className="absolute -bottom-11 -right-12 w-[510px] h-[510px] bg-[#C4C4C4] opacity-15 rounded-full z-0"></div>
                         <Image
@@ -206,33 +228,33 @@ export default function Home({ fontRubik }: { fontRubik: string }) {
                 </div>
             </div>
             {/* Sliding card */}
-            <div className="flex flex-col max-w-7xl mx-auto">
-                <div className="pl-5 ml-7">
-                    <h1 className="text-[38px] text-black font-medium">
+            <div className="flex flex-col max-w-7xl mx-auto px-4 md:px-0">
+                <div className="pl-0 md:pl-5 md:ml-7">
+                    <h1 className="text-[28px] md:text-[38px] text-black font-medium text-center md:text-left">
                         Browser Our Category
                     </h1>
-                    <h1 className="text-[38px] text-[#8BAC3E] font-medium">
+                    <h1 className="text-[28px] md:text-[38px] text-[#8BAC3E] font-medium text-center md:text-left">
                         Receipt
                     </h1>
                 </div>
                 <Carousel slides={slides} categoryColors={categoryColor} />
             </div>
             {/* Grid card */}
-            <div className="flex flex-col max-w-7xl mx-auto">
-                <div className="p-5 ml-7">
-                    <h1 className="text-[38px] text-black font-medium">
+            <div className="flex flex-col max-w-7xl mx-auto px-4 md:px-0">
+                <div className="p-5 md:ml-7">
+                    <h1 className="text-[28px] md:text-[38px] text-black font-medium text-center md:text-left">
                         Browse Our Trending
                     </h1>
-                    <h1 className="text-[38px] text-[#8BAC3E] font-medium">
+                    <h1 className="text-[28px] md:text-[38px] text-[#8BAC3E] font-medium text-center md:text-left">
                         Receipt
                     </h1>
                 </div>
-                <div className="py-4 px-10 flex flex-col ">
-                    <ul className="grid grid-cols-4 gap-6">
+                <div className="py-4 px-4 md:px-10 flex flex-col">
+                    <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
                         {trending.map((item) => (
                             <li
                                 key={item.id}
-                                className="bg-white rounded-2xl p-4 shadow-md hover:shadow-lg transition-all duration-200 hover:scale-105"
+                                className="bg-white rounded-2xl p-4 shadow-xl/3 hover:shadow-xl/3 transition-all duration-200 hover:scale-105"
                                 style={{
                                     backgroundColor:
                                         categoryColor[
@@ -240,18 +262,19 @@ export default function Home({ fontRubik }: { fontRubik: string }) {
                                         ] || "#FFFFFF",
                                 }}
                             >
-                                <div className="relative h-48 w-full mb-4">
+                                <div className="relative h-32 mb-4">
                                     <Image
                                         src={item.imageUrl}
                                         alt={item.name}
-                                        fill
-                                        className="object-cover rounded-xl"
+                                        width={128}
+                                        height={128}
+                                        className="object-contain rounded-xl"
                                     />
                                 </div>
-                                <h3 className="text-lg font-medium mb-1">
+                                <h3 className="text-[26px] font-medium mb-1">
                                     {item.name}
                                 </h3>
-                                <p className="text-[#8BAC3E] text-sm mb-2">
+                                <p className="text-[#8BAC3E] text-[18px] font-medium mb-2">
                                     {item.category}
                                 </p>
                                 <div className="flex items-center">
@@ -275,17 +298,17 @@ export default function Home({ fontRubik }: { fontRubik: string }) {
                     </ul>
                 </div>
                 <div className="flex justify-center mt-8">
-                    <button className="bg-[#8BAC3E] hover:opacity-90 rounded-4xl py-[10px] px-[18px] text-white text-[14px] font-medium inline-block">
-                        All Receipt
+                    <button className="bg-[#8BAC3E] hover:opacity-90 transition-all duration-200 rounded-4xl py-[10px] px-[24px] text-white text-[14px] font-medium inline-block">
+                        ALL Receipt
                     </button>
                 </div>
             </div>
             {/* Footer */}
-            <div className={`${fontRubik} bg-white py-20`}>
-                <div className="max-w-7xl mx-auto px-4">
-                    <div className="grid grid-cols-12 gap-20">
+            <div className={`${fontRubik} bg-white py-10 md:py-20`}>
+                <div className="max-w-7xl mx-auto p-6 md:p-16 bg-[#F9FFF6]">
+                    <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-20">
                         {/* Company Info */}
-                        <div className="col-span-4 space-y-6">
+                        <div className="col-span-1 md:col-span-4 space-y-6">
                             <Image
                                 src="/logoElemes.svg"
                                 width={207}
@@ -312,7 +335,7 @@ export default function Home({ fontRubik }: { fontRubik: string }) {
                         </div>
 
                         {/* Categories */}
-                        <div className="col-span-2 gap-12">
+                        <div className="col-span-1 md:col-span-2 gap-12">
                             <h3 className="text-lg font-medium mb-6">
                                 Categories
                             </h3>
@@ -336,7 +359,7 @@ export default function Home({ fontRubik }: { fontRubik: string }) {
                         </div>
 
                         {/* About Us */}
-                        <div className="col-span-2">
+                        <div className="col-span-1 md:col-span-2">
                             <h3 className="text-lg font-medium mb-6">
                                 About Us
                             </h3>
@@ -354,7 +377,7 @@ export default function Home({ fontRubik }: { fontRubik: string }) {
                         </div>
 
                         {/* Newsletter */}
-                        <div className="col-span-4">
+                        <div className="col-span-1 md:col-span-4">
                             <h3 className="text-lg font-medium mb-6">
                                 Newsletter
                             </h3>
@@ -369,7 +392,7 @@ export default function Home({ fontRubik }: { fontRubik: string }) {
                                         placeholder="Your email address"
                                         className="flex-1 p-3 border border-gray-200 rounded-l-md focus:outline-none focus:border-[#8BAC3E] text-sm"
                                     />
-                                    <button className="bg-[#8BAC3E] text-white px-6 py-3 rounded-r-md hover:opacity-90 transition-colors text-sm font-medium">
+                                    <button className="bg-[#8BAC3E] text-white px-6 py-3 rounded-r-md hover:opacity-90 transition-all duration-200 text-sm font-medium">
                                         SEND
                                     </button>
                                 </div>
@@ -390,12 +413,12 @@ export default function Home({ fontRubik }: { fontRubik: string }) {
                             </div>
                         </div>
                     </div>
-                    <div className="pt-8 border-t border-gray-100">
-                        <p className="text-center text-gray-600 text-sm">
-                            © 2021 Elemes id. All rights reserved
-                        </p>
-                    </div>
                 </div>
+            </div>
+            <div className="py-8 border-t border-gray-100">
+                <p className="text-center text-gray-600 text-sm">
+                    © 2021 Elemes id. All rights reserved
+                </p>
             </div>
         </div>
     );
